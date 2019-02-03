@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404, redirect
-from .models import Post, Comment
+from .models import Post, Comment, User
 
 from django.http import HttpResponse
 from .forms import PostForm, CommentForm, CreateUserForm
@@ -107,7 +107,6 @@ def permission_denied(request):
 def profile(request): #로그인 한 상태
     if not request.user.is_authenticated:
         data = {'username': request.user, 'is_authenticated': request.user.is_authenticated}
-        request.user.permission
     else:
         data = {'last_login': request.user.last_login, 'username': request.user.username,
                 'password': request.user.password, 'is_authenticated': request.user.is_authenticated}
