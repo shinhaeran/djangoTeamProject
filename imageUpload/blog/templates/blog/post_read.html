@@ -1,0 +1,33 @@
+<html>
+
+<h1>제목:{{post.title|safe}}</h1>
+내용:{{post.text|safe}}
+<h1>{{post.created_date|safe}}</h1>
+<img src="{{multiFile.file.url}}" >
+<img src="{% multiFile.file.name %}" >
+
+<p>{{multiFile.name}}</p>
+<p>{{multiFile.file.size}}</p>
+<a href="{% url 'blog:post_edit' post.id %}">수정하기</a>
+<a href="{% url 'blog:post_delete' post.id %}">삭제하기</a>
+
+<hr>
+<form action="{% url 'blog:comment_create' post.id %}" method="post">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" value = "submit">
+</form>
+
+<hr>
+{% for comment in post.comment_set.all %}
+ <p>
+     {{comment.text}}
+ </p>
+
+{% empty %}
+    <p>답변이 없습니다</p>
+{% endfor %}
+
+</html>

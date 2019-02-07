@@ -1,0 +1,15 @@
+<html>
+    
+{% for post in posts %}
+
+    
+<h1 >
+    <a href="{% url 'blog:post_read' post.pk %}">{{post.title}}</a>
+</h1>
+<!-- <h1>{{post.text}}</h1>
+<h1>{{post.created_date}}</h1> -->
+
+
+{% endfor %}
+
+</html>
