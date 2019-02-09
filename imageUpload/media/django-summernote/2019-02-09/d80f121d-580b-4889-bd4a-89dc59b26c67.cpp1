@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+int main()
+{
+	int number = 0; //입력받을 정수
+	
+	while (1)
+	{
+		printf("약수를 구할 정수를 입력하세요 :");
+		scanf("%d", &number);
+
+		printf("%d의 약수: ", number);
+
+		if (number < 1) //입력받은 정수가 1보다 작으면 벗어난다
+		{
+			printf("숫자를 다시 입력해주세요"); break;
+		}
+		else
+		{
+			for (int i = 2; i <= number; i++) //자기보다 작거나 같은 수를 나눠 나머지가 0이면 약수이다
+			{
+				if (number%i == 0) 
+					printf(" %d ", i); //약수 출력
+			}
+		}
+	}
+}

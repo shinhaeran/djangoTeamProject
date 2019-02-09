@@ -42,7 +42,7 @@ class PostForm_summernote(forms.ModelForm):
     class Meta:
         model = Post
         fields = {'title', 'text', }
-    title = forms.CharField(required=True, max_length=300,
+        title = forms.CharField(required=True, max_length=300,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'Title',

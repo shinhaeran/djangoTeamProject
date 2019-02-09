@@ -75,13 +75,13 @@ def post_edit(request, pk):
     post = get_object_or_404(Post, id = pk)
 
     if request.method =='POST':
-        Post_form = PostForm(request.POST, instance = post)
+        Post_form = PostForm_summernote(request.POST, instance = post)
 
         if Post_form.is_valid():
             post = Post_form.save()
             return HttpResponse('수정완료')
     else:
-        Post_form = PostForm(instance = post)
+        Post_form = PostForm_summernote(instance = post)
     
     return render(request, 'blog/post_create.html',{
         'Post_form':Post_form,

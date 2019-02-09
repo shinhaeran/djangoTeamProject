@@ -20,4 +20,5 @@ urlpatterns=[
     path('permission_denied/', views.permission_denied, name = 'permission_denied'),  
 
     path('post_create_summernote/',views.new_post, name = 'new_post'),
+    
 ]

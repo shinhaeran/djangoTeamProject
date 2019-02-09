@@ -1,13 +1,19 @@
+{% load static %}
+
 <html>
 
 <h1>제목:{{post.title|safe}}</h1>
 내용:{{post.text|safe}}
 <h1>{{post.created_date|safe}}</h1>
-<img src="{{multiFile.file.url}}" >
-<img src="{% multiFile.file.name %}" >
+
+<div>
+    <img src="{{multiFile.file.url}}">
+</div>
+
 
 <p>{{multiFile.name}}</p>
-<p>{{multiFile.file.size}}</p>
+
+<p>{{multiFile.file.url}}</p>
 <a href="{% url 'blog:post_edit' post.id %}">수정하기</a>
 <a href="{% url 'blog:post_delete' post.id %}">삭제하기</a>
 
